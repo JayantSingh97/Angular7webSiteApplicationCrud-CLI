@@ -1,0 +1,200 @@
+<div class="container" >
+    <div class="card" *ngIf="!productcreated">
+        <div class="card-header"><span class="fa fa-desktop"></span> Create a New Product in store</div>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="card-body"> 
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group-small">
+                            <label><span class="fa fa-desktop"></span> productName</label>
+                            <input type="text" formControlName="productName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productName.errors }" />
+                            <div *ngIf="submitted && f.productName.errors" class="invalid-feedback">
+                                <div *ngIf="f.productName.errors.required">Enter the product name</div>
+                            </div>
+                        </div>
+                        <div class="form-group-small">
+                            <label>&#8377; Price</label>
+                            <input type="text" formControlName="Price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Price.errors }" />
+                            <div *ngIf="submitted && f.Price.errors" class="invalid-feedback">
+                                <div *ngIf="f.Price.errors.required">Enter the product price</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group-small">
+                            <label><span class="fa fa-check"></span> isAvailable</label>
+                            <input type="text" formControlName="isAvailable" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.isAvailable.errors }" />
+                            <div *ngIf="submitted && f.isAvailable.errors" class="invalid-feedback">
+                                <div *ngIf="f.isAvailable.errors.required">Is Product in stock </div>
+                            </div>
+                        </div>
+                        <div class="form-group-small">
+                            <label><span class="fa fa-calendar"></span> launchdate</label>
+                            <input type="text" formControlName="launchdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.launchdate.errors }" />
+                            <div *ngIf="submitted && f.launchdate.errors" class="invalid-feedback">
+                                <div *ngIf="f.launchdate.errors.required">Enter the product launchdate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group-small">
+                            <label><span class="fa fa-address-book"></span> category</label>
+                            <input type="text" formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category.errors }" />
+                            <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                                <div *ngIf="f.category.errors.required">Enter the product category</div>
+
+                            </div>
+                        </div>
+                        <div class="form-group-small">
+                            <label><span class="fa fa-brush"></span> color</label>
+                            <input type="text" formControlName="color" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.color.errors }" />
+                            <div *ngIf="submitted && f.color.errors" class="invalid-feedback">
+                                <div *ngIf="f.color.errors.required">Enter the product color</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group-small">
+                            <label><span class="fa fa-database"></span> storage</label>
+                            <input type="text" formControlName="storage" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.storage.errors }" />
+                            <div *ngIf="submitted && f.storage.errors" class="invalid-feedback">
+                                <div *ngIf="f.storage.errors.required">Enter the product storage</div>
+
+                            </div>
+                        </div>
+                        <div class="form-group-small">
+                            <label><span class="fa fa-list"></span> description</label>
+                            <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                            <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                <div *ngIf="f.description.errors.required">Enter the product description</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6"> 
+                        <div class="form-group-small">
+                            <label><span class="fa fa-thermometer-quarter"></span> weight</label>
+                            <input type="text" formControlName="weight" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }" />
+                            <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                                <div *ngIf="f.weight.errors.required">Enter the product weight</div>
+
+                            </div>
+                        </div>
+                        <div class="form-group-small">
+                            <label><span class="fa fa-camera"></span> camera</label>
+                            <input type="text" formControlName="camera" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.camera.errors }" />
+                            <div *ngIf="submitted && f.camera.errors" class="invalid-feedback">
+                                <div *ngIf="f.camera.errors.required">Enter the product camera</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group-small">
+                            <label><span class="fa fa-mobile"></span> display</label>
+                            <input type="text" formControlName="display" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.display.errors }" />
+                            <div *ngIf="submitted && f.display.errors" class="invalid-feedback">
+                                <div *ngIf="f.display.errors.required">Enter the product display</div>
+
+                            </div>
+                        </div>
+                        <div class="form-group-small">
+                            <label><span class="fa fa-cog"></span> processor</label>
+                            <input type="text" formControlName="processor" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.processor.errors }" />
+                            <div *ngIf="submitted && f.processor.errors" class="invalid-feedback">
+                                <div *ngIf="f.processor.errors.required">Enter the product processor</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="form-group-small">
+                            <label><span class="fa fa-globe"></span> imageUrl</label>
+                            <input type="text" formControlName="imageUrl" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imageUrl.errors }" />
+                            <div *ngIf="submitted && f.imageUrl.errors" class="invalid-feedback">
+                                <div *ngIf="f.imageUrl.errors.required">Enter the product imageUrl</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+               
+            </div>
+            <div class="card-footer text-muted text-right">
+
+                <div class="row">
+                <div class="col-md-4 col-lg-1"> 
+                    <button type="reset" click="form.Reset()" class="btn btn-outline-danger"> Reset Form</button>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <button type="submit" class="btn btn-outline-primary"> Create Product</button> 
+                </div>
+              </div>
+            </div>
+        </form>
+    </div>
+
+
+<div *ngIf="productcreated">
+    <div *ngFor="let items of NewProduct">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="card Removeborder">
+                    <img class="productview card-img-overlay" src="{{items.imageUrl}}" alt="Product">
+                </div>
+            </div>
+            <div class="col-lg-5 Removeborder">
+                <div class="card Removeborder">
+                    <ul class="list-group list-group-flush" style="text-align: -webkit-center;">
+                        <h4 class="text-primary Custom-list-item"><span class="fa fa-laptop"></span> Model Name :  {{items.productName}}</h4>
+                        <li class="list-group-item Custom-list-item"><span class="fa fa-brush"></span> Color :  {{items.color}}</li>
+                        <li class="list-group-item Custom-list-item">
+                            <span class="fa fa-database"></span> Is Available
+                            <div class="btn-success" *ngIf="items.isAvailable == 'true'"> In stock </div>
+                            <div class="btn-danger" *ngIf="items.isAvailable == 'false'"> Out of stock</div>
+                        </li>
+                        <li class="list-group-item Custom-list-item"><span class="fa fa-camera"></span> Camera :  {{items.camera}}</li>
+                        <li class="list-group-item Custom-list-item"><span class="fa fa-mobile"></span> Display :  {{items.display}}</li>
+                        <li class="list-group-item Custom-list-item"><span class="fa fa-cogs  "></span> Processor :  {{items.processor}}</li>
+                        <li class="list-group-item Custom-list-item"><span class="fa fa-database"></span> Storage :  {{items.storage}}</li>
+                        <li class="list-group-item Custom-list-item"><span class="fa fa-tasks"></span> Weight :  {{items.weight}}</li>
+
+                        <li class="list-group-item text-danger Custom-list-item">&#8377; <strong>Price :  {{items.price}}</strong></li>
+                        <li class="list-group-item Custom-list-item"><span class="fa fa-calendar-check"></span> Launch Date :  {{items.launchdate}}</li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star-half"></span>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+
+                        <button type="button" (click)="EditProduct()" class="card-link btn btn-outline-primary">   <span class="fa fa-recycle"></span> Edit Product </button>
+                        <button type="button" (click)="DeleteProduct(items.productId)" class="card-link btn btn-outline-danger"><span class="fa fa-trash"></span> Delete Product</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-body container">
+                <h4> <span class="fa fa-info-circle"></span> Product Company Information</h4>
+                <hr>
+                {{items.description}}
+            </div>
+        </div>
+    </div>
+</div> 
+</div>

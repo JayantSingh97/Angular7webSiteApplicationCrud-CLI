@@ -1,0 +1,161 @@
+<div *ngIf="!showCart">
+    <div class="row">
+        <div class="col-10">
+            <h4><span class="fa  fa-home"></span> Dashboard</h4>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-sm btn-outline-success" *ngIf="AllowShowCartbtn" (click)="showcartitmes()"><span class="fa fa-eye"></span> View Cart Item <strong> <span class="badge badge-success budgefont">{{totalitmesincart}}</span></strong></button>
+            <button class="btn btn-sm btn-outline-primary" *ngIf="!AllowShowCartbtn" (click)="RefreshDashboard()"><span class="fa fa-redo"></span> Refresh Dasboard</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="!showproductinfo">
+        <div class="col-lg-4 col-sm-6  col-xs-12" *ngFor="let product of products">
+
+            <div class="card overview" style="width: 18rem;">
+                <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+                <div class="card-body ">
+                    <h5 class="card-title text-primary">{{product.productName}} ({{product.color}})</h5>
+
+                    <ul class="list-group list-group-flush">
+                        <div class="btn-success" *ngIf="product.isAvailable == 'True'"> In stock </div>
+                        <div class="btn-danger" *ngIf="product.isAvailable == 'False'"> Out of stock</div>
+                    </ul> <br>
+                    <p class="card-text text-danger"> &#8377; <strong>{{product.price}}</strong></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Sale Started on : {{product.launchdate.slice(1,10)}}</li>
+                </ul>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star-half"></span>
+                    </li>
+                </ul>
+
+                <div class="card-body">
+                    <button type="button" class="card-link btn btn-outline-primary" (click)="GetProductInformation(product.productId)" [disabled]="product.isAvailable == 'False'"><span class="fa fa-eye"></span> View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="loader" *ngIf="isloading">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw loaderalignment"></i>
+        <br>
+        <span class="sr-only">Loading...</span>
+        Loading...
+    </div>
+
+    <div *ngIf="showproductinfo">
+        <div *ngFor="let items of producttoview">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="card">
+                        <img class="productview card-img-overlay" src="{{items.imageUrl}}" alt="Product">
+                    </div>
+                </div>
+                <div class="col-lg-5"> 
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <h4 class="text-primary Custom-list-item"><span class="fa fa-laptop"></span> Model Name :  {{items.productName}}</h4>
+                            <li class="list-group-item Custom-list-item"><span class="fa fa-brush"></span> Color :  {{items.color}}</li>
+                            <li class="list-group-item Custom-list-item">
+                                <span class="fa fa-database"></span> Is Available
+                                <div class="btn-success" *ngIf="items.isAvailable == 'True'"> In stock </div>
+                                <div class="btn-danger" *ngIf="items.isAvailable == 'False'"> Out of stock</div>
+                            </li>
+                            <li class="list-group-item Custom-list-item"><span class="fa fa-camera"></span> Camera :  {{items.camera}}</li>
+                            <li class="list-group-item Custom-list-item"><span class="fa fa-mobile"></span> Display :  {{items.display}}</li>
+                            <li class="list-group-item Custom-list-item"><span class="fa fa-cogs  "></span> Processor :  {{items.processor}}</li>
+                            <li class="list-group-item Custom-list-item"><span class="fa fa-database"></span> Storage :  {{items.storage}}</li>
+                            <li class="list-group-item Custom-list-item"><span class="fa fa-tasks"></span> Weight :  {{items.weight}}</li>
+
+                            <li class="list-group-item text-danger Custom-list-item">&#8377; <strong>Price :  {{items.price}}</strong></li>
+                            <li class="list-group-item Custom-list-item"><span class="fa fa-calendar-check"></span> Launch Date :  {{items.launchdate}}</li>
+                        </ul>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star-half"></span>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+
+                            <button type="button" (click)="GoHome()" class="card-link btn btn-outline-danger">   <span class="fa fa-arrow-left"></span> Go Back </button>
+                            <button type="button" (click)="AddToCart(items.productId)" class="card-link btn btn-outline-primary"><span class="fa fa-cart-plus"></span> Add To Cart</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body container">
+                    <h4> <span class="fa fa-info-circle"></span> Product Company Information</h4>
+                    <hr>
+                    {{items.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showCart">
+    <br>
+    <h3 class="text-left"><span class="fa fa-cart-plus"></span> There are total <strong> {{totalitmesincart}} </strong> item(s) in your cart. </h3>
+    <hr>
+    <div class="card-body text-right">
+            <button type="button" (click)="greetuser()" class="card-link btn btn-outline-success"><span class="fa fa-check"></span> Procced To Check out</button>
+            <button type="button" (click)="ClearCart()" class="card-link btn btn-outline-danger"><span class="fa fa-trash"></span> Clear Cart </button>
+        </div> 
+    <div class="row">
+        <div class="col-lg-4 col-sm-6 col-xs-12" *ngFor="let product of CartItems">
+
+            <div class="card overview" style="width: 18rem;">
+                <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+                <div class="card-body ">
+                    <h5 class="card-title text-primary">{{product.productName}} ({{product.color}})</h5>
+
+                    <ul class="list-group list-group-flush">
+                        <div class="btn-success" *ngIf="product.isAvailable == 'True'"> In stock </div>
+                        <div class="btn-danger" *ngIf="product.isAvailable == 'False'"> Out of stock</div>
+                    </ul> <br>
+                    <p class="card-text text-danger"> &#8377; <strong>{{product.price}}</strong></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Sale Started on : {{product.launchdate.slice(1,10)}}</li>
+                </ul>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star-half"></span>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+    </div>
+    
+</div>
+
+
+<div *ngIf="IsApiServiceUp">
+
+        <div class="alert alert-danger container text-center"> <strong> <span class="fa fa-exclamation-triangle"></span> Server Info !</strong> 
+        <hr>
+           Unable to communicate with Api service. data could not be loaded ! Please try  after some time later
+           <br>
+             Please Fix the Following issue to take website live.<br>  <br>
+             <ol>
+                    <li>Api service congifuration issue</li><hr>
+                     <li>Api service could be down</li>
+              </ol>
+              <button type="button" class="btn btn-danger btn-sm mb-2"  (click)="getProducts()"> <span class="fa fa-redo"></span> Retry Now</button>
+        </div>
+ </div>

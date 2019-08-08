@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-light sticky-top" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#"><span class="fa fa-desktop"></span> Angular 7 Application </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+
+                <a class="nav-link" routerLink="/Home" routerLinkActive="active"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Products" ><span class="fa fa-plus"></span> Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Home"><span class="fa fa-redo"></span> Refresh</a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-md-0">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa fa-user"></span> Welcome:User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa fa-lock"></span> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
