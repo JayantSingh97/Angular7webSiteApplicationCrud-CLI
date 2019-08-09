@@ -1,4 +1,4 @@
-# Angular7webSiteApplicationCrud 
+# Angular7webSiteApplicationCrud  CLI
  Angular7webSiteApplicationCrud
  
 # Angular 7 Project Api configuration information.
@@ -19,6 +19,6 @@ Because for performance resion Github ignores the node_modules folder because it
 
 npm i command creates new node_modules and restores all the project dependency.
 
-# This project was built on latest version of angular framework on 09-08-2019 (IST)
+# This project was built on latest version of angular (CLI) framework on 09-08-2019 (IST)
 
 # Thank you.
