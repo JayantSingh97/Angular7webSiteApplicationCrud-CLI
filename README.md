@@ -19,6 +19,11 @@ Because for performance resion Github ignores the node_modules folder because it
 
 npm i command creates new node_modules and restores all the project dependency.
 
+Make sure the Vue.js application should be using the same (# PORT NUMBER ) like http://yourApisubdomain.yourApimaindomain(or)yourportnumber on which your web api is running if  there will be any kind of mismatch in api (URL || URI) configuration then application many not work appropriately.
+
+Or it may throw unexpectedlly 404 Not Found error because your website is trying to access the Api which does not exist.
+
+
 # This project was built on latest version of angular (CLI) framework on 09-08-2019 (IST)
 
 # Thank you.
