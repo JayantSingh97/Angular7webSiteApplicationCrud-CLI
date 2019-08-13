@@ -26,5 +26,5 @@ Or it may throw unexpectedlly 404 Not Found error because your website is trying
 
 # This project was built on latest version of angular (CLI) framework on 09-08-2019 (IST)
 
-# Thank you.
+# Thank you. 
  
