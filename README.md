@@ -1,11 +1,13 @@
 # Angular7webSiteApplicationCrud  CLI
  Angular7webSiteApplicationCrud
  
-Angular 7 Project Api configuration information.
+# Angular 7 Project Api configuration information.
  
 This Project has dependency on https://github.com/JayantSingh97/MicrosoftUnityDependencyInjectionApi So Please download Api From https://github.com/JayantSingh97/MicrosoftUnityDependencyInjectionApi and just need to run the api in Microsoft visual studio latest version.
 
 This project is already configured with https://github.com/JayantSingh97/MicrosoftUnityDependencyInjectionApi APi.
+
+ If you are facing any compilation issue in your API then simply delete the (VS) File in  https://github.com/JayantSingh97/MicrosoftUnityDependencyInjectionApi Directory and reload your project in MSVS.
 
  # Angular 7 Project Configuartion information.
 
